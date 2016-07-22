@@ -8,7 +8,11 @@ class GrandpaView(View):
 		return render(request, self.template)
 
 	def post(self, request):
+		print('siwenfoainvf')
+		print(request.POST)
 		x = request.POST['said']
-		# call grandpa.js file (x)
-		return HttpResponse(x)
+		if x == x.upper():
+			return JsonResponse({x:'I CAN HEaR YOYU'})
+		else:
+			return JsonResponse({x:'I CANT HEAR YOU'})
 		

@@ -3,19 +3,15 @@ $(document).ready(function(){
 		event.preventDefault(); //prevents default which would reload page
 		//post form to server, get data back
 		$.post( "/", $( "#say_grandpa" ).serialize(), function(data){
-			if (data === data.toUpperCase()){
-				console.log(data)
-			} else {
-				console.log("I cant hear you motha fucka")
-			}
 
 			$.ajax({
 					method: "POST",
-					url: "{% url index %}",
+					url: 'http://127.0.0.1:8000',
 					dataType: "jsonp",
-					success:function(said){
-						console.log(said)
-						$('.grandpa').append(said.Title)
+					// add in data: XXX
+					success:function(result){
+						console.log('hi')
+						$('.grandpa').append(result.x)
 					}
 				})
 		});
